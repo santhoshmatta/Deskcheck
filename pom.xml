@@ -35,9 +35,9 @@
                          <goal>wget</goal>
                       </goals>
             <configuration>
-			<url>http://localhost:8081/artifactory/</url>
+			<url>http://localhost:8081/</url>
               <fromFile>ext-release-local</fromFile>
-                <toDir>${project.build.directory}/local</toDir>
+                <toDir>${project.build.directory}</toDir>
 			</configuration>
                 </execution>
             </executions>
@@ -48,7 +48,7 @@
 		<repository>
 			<id>artifactory</id>
 			<name>Artifactory</name>
-			<url>http://localhost:8081/artifactory/</url>
+			<url>http://localhost:8081/</url>
 		</repository>
 	<repository>
       <id>mvnrepository</id>
