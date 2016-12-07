@@ -14,8 +14,52 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+	<dependency>
+         <groupId>com.googlecode.maven-download-plugin</groupId>
+         <artifactId>maven-download-plugin</artifactId>
+         <version>1.1.0</version>
+     </dependency>
   </dependencies>
   <build>
     <finalName>CounterWebApp</finalName>
   </build>
+  <plugins>
+	 <plugin>
+         <groupId>com.googlecode.maven-download-plugin</groupId>
+         <artifactId>maven-download-plugin</artifactId>
+         <version>1.3.0</version>
+           <executions>
+                <execution>
+                  <!-- the wget goal actually binds itself to this phase by default -->
+                  <phase>process-resources</phase>
+                     <goals>
+                         <goal>wget</goal>
+                      </goals>
+            <configuration>
+			<url>http://localhost:8081/artifactory/webapps/</url>
+              <fromFile>ext-release-local</fromFile>
+                <toDir>${project.build.directory}/local</toDir>
+			</configuration>
+                </execution>
+            </executions>
+      </plugin>
+	</plugins>
+	<repositories>
+		<repository>
+			<id>artifactory</id>
+			<name>Artifactory</name>
+			<url>http://localhost:8081/artifactory/</url>
+		</repository>
+	<repository>
+      <id>mvnrepository</id>
+      <url>http://mvnrepository.com/artifact/</url>
+    </repository>
+	</repositories>
+<distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>IBM529-LR4PEC8-releases</name>
+        <url>http://localhost:8081/artifactory/ext-release-local</url>
+    </repository>
+</distributionManagement>
 </project>
