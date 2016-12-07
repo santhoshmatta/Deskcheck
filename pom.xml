@@ -22,7 +22,6 @@
   </dependencies>
   <build>
     <finalName>CounterWebApp</finalName>
-  </build>
   <plugins>
 	 <plugin>
          <groupId>com.googlecode.maven-download-plugin</groupId>
@@ -44,6 +43,7 @@
             </executions>
       </plugin>
 	</plugins>
+ </build>
 	<repositories>
 		<repository>
 			<id>artifactory</id>
